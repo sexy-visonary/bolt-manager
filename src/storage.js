@@ -1,57 +1,61 @@
 // Default seed data matching the "inventar" mockup style
 const DEFAULT_ITEMS = [
   {
-    id: "PART-652",
+    id: "PO-652",
     name: "Men Cotton Polo Shirt Army (Hex Bolt)",
-    size: "M8 x 40mm",
+    size: "L",
     category: "bolt",
     quantity: 500,
     reorderThreshold: 100,
+    price: 68.00,
     vendor: "Vahement Part",
-    location: "Aisle 2, Bin A1",
+    location: "846 Innovation Ave. Enterprise, AL 36330",
     lastUpdated: "2026-06-19T18:07:00.000Z"
   },
   {
-    id: "PART-655",
+    id: "PO-655",
     name: "Men Cotton Polo Shirt Ocean Blue (Nyloc Nut)",
-    size: "M8",
+    size: "S",
     category: "nut",
-    quantity: 80,
+    quantity: 300,
     reorderThreshold: 100,
+    price: 68.00,
     vendor: "Acme Corp",
-    location: "Aisle 2, Bin A2",
+    location: "846 Innovation Ave. Enterprise, AL 36330",
     lastUpdated: "2026-06-19T18:01:00.000Z"
   },
   {
-    id: "PART-654",
+    id: "PO-654",
     name: "Men Cotton Polo Shirt Army (Flat Washer)",
-    size: "M8",
+    size: "L",
     category: "washer",
     quantity: 1000,
     reorderThreshold: 200,
+    price: 32.00,
     vendor: "Acme Corp",
-    location: "Aisle 2, Bin B1",
+    location: "846 Innovation Ave. Enterprise, AL 36330",
     lastUpdated: "2026-06-19T18:04:00.000Z"
   },
   {
-    id: "PART-658",
+    id: "PO-658",
     name: "Socket Head Cap Screw",
-    size: "M6 x 20mm",
+    size: "M6",
     category: "bolt",
     quantity: 15,
     reorderThreshold: 50,
+    price: 15.00,
     vendor: "Vahement Part",
     location: "Aisle 3, Bin C1",
     lastUpdated: "2026-06-19T18:06:00.000Z"
   }
 ];
 
-const STORAGE_KEY = "inventar_items_v1";
+const STORAGE_KEY = "inventar_items_v2"; // Increment key to reset storage
 
-// Helper to generate a new item ID
+// Helper to generate a new item ID in PO-xxx format
 function generateId() {
-  const num = Math.floor(100 + Math.random() * 900);
-  return `PART-${num}`;
+  const num = Math.floor(600 + Math.random() * 300);
+  return `PO-${num}`;
 }
 
 export const Storage = {
@@ -85,6 +89,7 @@ export const Storage = {
       category: itemData.category || "bolt",
       quantity: Math.max(0, parseInt(itemData.quantity) || 0),
       reorderThreshold: Math.max(0, parseInt(itemData.reorderThreshold) || 0),
+      price: Math.max(0, parseFloat(itemData.price) || 0.00),
       vendor: itemData.vendor ? itemData.vendor.trim() : "Unknown Vendor",
       location: itemData.location ? itemData.location.trim() : "Unassigned",
       lastUpdated: new Date().toISOString()
@@ -106,6 +111,7 @@ export const Storage = {
       // Ensure numeric bounds are respected
       quantity: updates.quantity !== undefined ? Math.max(0, parseInt(updates.quantity) || 0) : items[index].quantity,
       reorderThreshold: updates.reorderThreshold !== undefined ? Math.max(0, parseInt(updates.reorderThreshold) || 0) : items[index].reorderThreshold,
+      price: updates.price !== undefined ? Math.max(0, parseFloat(updates.price) || 0.00) : items[index].price,
       lastUpdated: new Date().toISOString()
     };
 
@@ -136,18 +142,18 @@ export const Storage = {
         throw new Error("Backup must be a JSON array of items.");
       }
 
-      // Basic validation of fields
       const validatedItems = parsed.map((item, idx) => {
         if (!item.name || !item.size) {
           throw new Error(`Item at index ${idx} is missing required fields (name, size).`);
         }
         return {
-          id: item.id || `PART-${100 + idx}`,
+          id: item.id || `PO-${600 + idx}`,
           name: String(item.name).trim(),
           size: String(item.size).trim(),
           category: String(item.category || "bolt").toLowerCase(),
           quantity: Math.max(0, parseInt(item.quantity) || 0),
           reorderThreshold: Math.max(0, parseInt(item.reorderThreshold) || 0),
+          price: Math.max(0, parseFloat(item.price) || 0.00),
           vendor: item.vendor ? String(item.vendor).trim() : "Unknown Vendor",
           location: item.location ? String(item.location).trim() : "Unassigned",
           lastUpdated: item.lastUpdated || new Date().toISOString()

@@ -32,18 +32,28 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
           </svg>
           Inventory
+          <!-- Chevron down -->
+          <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+          </svg>
         </a>
         <a href="#" class="nav-link">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
           </svg>
           Sales
+          <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+          </svg>
         </a>
         <a href="#" class="nav-link active">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
           </svg>
           Order
+          <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+          </svg>
         </a>
         <a href="#" class="nav-link">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +83,6 @@
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
           </svg>
-          <!-- Red dot -->
           <span style="position: absolute; top: 8px; right: 8px; width: 6px; height: 6px; background-color: var(--critical-red); border-radius: 50%;"></span>
         </button>
         <!-- Profile Avatar -->
@@ -129,7 +138,7 @@
             <!-- Checkbox/Toggle: Low Stock Status -->
             <div class="filter-group" style="flex-direction: row; align-items: center; justify-content: space-between; padding-top: 0.5rem;">
               <label class="filter-label" for="filter-low-stock" style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
-                <input type="checkbox" id="filter-low-stock" style="accent-color: var(--brand-green); transform: scale(1.1);" />
+                <input type="checkbox" id="filter-low-stock" style="accent-color: var(--accent-green); transform: scale(1.1);" />
                 Low Stock Only
               </label>
             </div>
@@ -178,26 +187,45 @@
         <!-- Content Header -->
         <div class="content-header">
           <div class="part-details">
-            <h1 class="page-title">Parts Inventory</h1>
-            <span class="part-stock-label" id="parts-summary-text">Showing 0 of 0 parts</span>
+            <h1 class="page-title">Purchase Order</h1>
+            <span class="part-stock-label" id="parts-summary-text" style="color: var(--text-secondary); font-size: 0.85rem;">Showing 0 of 0 items</span>
           </div>
-          
-          <button class="btn-primary" id="btn-new-part">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-            </svg>
-            New Part
-          </button>
         </div>
 
-        <!-- Search Bar Row -->
+        <!-- Search Bar & View Buttons Row (Mockup Exact Layout) -->
         <div class="search-bar-row">
           <div class="search-wrapper">
             <svg class="search-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
-            <input type="text" id="search-input" class="search-input" placeholder="Search product by name or size (e.g. M8)..." />
+            <input type="text" id="search-input" class="search-input" placeholder="Search product..." />
           </div>
+
+          <!-- View toggles: List icon and Grid icon -->
+          <div class="view-toggles">
+            <button class="view-btn active" title="List View">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+              </svg>
+            </button>
+            <button class="view-btn" title="Grid View">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Options button -->
+          <button class="icon-btn" title="Options">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+            </svg>
+          </button>
+
+          <!-- New Purchase Button -->
+          <button class="btn-primary" id="btn-new-part">
+            New Purchase
+          </button>
         </div>
 
         <!-- Parts Cards Container -->
@@ -230,7 +258,7 @@
             <!-- Part Name -->
             <div class="form-group">
               <label class="form-label" for="form-part-name">Part Name *</label>
-              <input type="text" id="form-part-name" class="text-input" placeholder="e.g. Hex Head Cap Screw" required />
+              <input type="text" id="form-part-name" class="text-input" placeholder="e.g. Men Cotton Polo Shirt Army" required />
               <span class="validation-error" id="err-part-name">Part name is required.</span>
             </div>
 
@@ -238,7 +266,7 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
               <div class="form-group">
                 <label class="form-label" for="form-part-size">Size *</label>
-                <input type="text" id="form-part-size" class="text-input" placeholder="e.g. M8 x 40mm" required />
+                <input type="text" id="form-part-size" class="text-input" placeholder="e.g. L" required />
                 <span class="validation-error" id="err-part-size">Size is required.</span>
               </div>
               <div class="form-group">
@@ -251,17 +279,22 @@
               </div>
             </div>
 
-            <!-- Quantities Row -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <!-- Quantities & Cost Row -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem;">
               <div class="form-group">
-                <label class="form-label" for="form-part-qty">Quantity On-Hand *</label>
+                <label class="form-label" for="form-part-qty">Quantity *</label>
                 <input type="number" id="form-part-qty" class="text-input" min="0" value="0" required />
-                <span class="validation-error" id="err-part-qty">Must be a valid integer &ge; 0.</span>
+                <span class="validation-error" id="err-part-qty">Integer &ge; 0.</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="form-part-threshold">Reorder Threshold *</label>
+                <label class="form-label" for="form-part-threshold">Reorder Point *</label>
                 <input type="number" id="form-part-threshold" class="text-input" min="0" value="50" required />
-                <span class="validation-error" id="err-part-threshold">Must be a valid integer &ge; 0.</span>
+                <span class="validation-error" id="err-part-threshold">Integer &ge; 0.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="form-part-price">Price ($) *</label>
+                <input type="number" id="form-part-price" class="text-input" min="0" step="0.01" value="68.00" required />
+                <span class="validation-error" id="err-part-price">Number &ge; 0.</span>
               </div>
             </div>
 
@@ -269,11 +302,11 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
               <div class="form-group">
                 <label class="form-label" for="form-part-vendor">Vendor</label>
-                <input type="text" id="form-part-vendor" class="text-input" placeholder="e.g. Acme Corp" />
+                <input type="text" id="form-part-vendor" class="text-input" placeholder="e.g. Vahement Part" />
               </div>
               <div class="form-group">
-                <label class="form-label" for="form-part-location">Location</label>
-                <input type="text" id="form-part-location" class="text-input" placeholder="e.g. Aisle 2, Bin A1" />
+                <label class="form-label" for="form-part-location">Location Address</label>
+                <input type="text" id="form-part-location" class="text-input" placeholder="e.g. 846 Innovation Ave." />
               </div>
             </div>
           </div>
