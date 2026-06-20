@@ -1,5 +1,9 @@
 import "./style.css";
 import { Storage } from "./storage.js";
+import { inject } from "@vercel/analytics";
+
+// Initialize Vercel Analytics
+inject();
 
 // DOM Elements
 const elSearchInput = document.getElementById("search-input");
@@ -532,6 +536,7 @@ function openModal(mode, item = null) {
   elModal.classList.add("active");
 }
 
+// Modal Form handling
 function closeModal() {
   elModal.classList.remove("active");
 }
