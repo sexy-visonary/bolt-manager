@@ -1,3 +1,4 @@
+import "./style.css";
 import { Storage } from "./storage.js";
 
 // DOM Elements
@@ -382,7 +383,7 @@ function createPartCard(item) {
           <span class="vendor-separator">•</span>
           <div class="billed-indicator">
             <!-- Sheet file icon -->
-            <svg class="billed-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="billed-icon" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
             </svg>
             <span>${item.quantity >= item.reorderThreshold * 2 ? 'Received' : 'Billed'}</span>
@@ -415,7 +416,7 @@ function createPartCard(item) {
         <!-- Step 1: Placed / Document -->
         <div class="progress-node ${activeStep >= 1 ? 'active' : ''}" data-label="Placed" style="--step-color: ${activeStep >= 1 ? stepColor : ''}; --step-shadow: ${stepShadow};">
           <!-- Document icon with a + badge -->
-          <svg class="progress-node-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="progress-node-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
           </svg>
         </div>
@@ -423,7 +424,7 @@ function createPartCard(item) {
         <!-- Step 2: Packaging / Box -->
         <div class="progress-node ${activeStep >= 2 ? 'active' : ''}" data-label="Packed" style="--step-color: ${activeStep >= 2 ? stepColor : ''}; --step-shadow: ${stepShadow};">
           <!-- Box icon -->
-          <svg class="progress-node-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="progress-node-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
           </svg>
         </div>
@@ -431,7 +432,7 @@ function createPartCard(item) {
         <!-- Step 3: Shipping / Truck -->
         <div class="progress-node ${activeStep >= 3 ? 'active' : ''}" data-label="Shipped" style="--step-color: ${activeStep >= 3 ? stepColor : ''}; --step-shadow: ${stepShadow};">
           <!-- Truck icon -->
-          <svg class="progress-node-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="progress-node-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.75A1.125 1.125 0 012.625 17.625V4.625A1.125 1.125 0 013.75 3.5h11.25a1.125 1.125 0 011.125 1.125v1.25m-11 13h11.25m-11.25 0V11.25m11.25 7.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path>
           </svg>
         </div>
@@ -439,7 +440,7 @@ function createPartCard(item) {
         <!-- Step 4: Delivered / Checkmark -->
         <div class="progress-node ${activeStep >= 4 ? 'active' : ''}" data-label="Delivered" style="--step-color: ${activeStep >= 4 ? stepColor : ''}; --step-shadow: ${stepShadow};">
           <!-- Checkmark icon -->
-          <svg class="progress-node-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="progress-node-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
           </svg>
         </div>
